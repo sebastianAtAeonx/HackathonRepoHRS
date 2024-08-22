@@ -85,13 +85,13 @@ try {
   );
 }
 
-app.get("/", (req, res) => {
-  res
-    .status(200)
-    .send(
-      `<div style='height:97vh; display:flex; justify-content:center; align-items:center'><h1><center>Greetings & Welcome to the SupplierX Backend!<br> <a href='${constants.admindetails.homePageUrl}'>Login</a></center></h1></div>`
-    );
-});
+// app.get("/", (req, res) => {
+//   res
+//     .status(200)
+//     .send(
+//       `<div style='height:97vh; display:flex; justify-content:center; align-items:center'><h1><center>Greetings & Welcome to the SupplierX Backend!<br> <a href='${constants.admindetails.homePageUrl}'>Login</a></center></h1></div>`
+//     );
+// });
 
 app.use((req, res) => {
   res.status(404).json({
