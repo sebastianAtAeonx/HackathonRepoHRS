@@ -3,6 +3,6 @@ import textract from '../routes/textract/textract.js'
 
 const router = express.Router();
 
-router.put("/aws", textract);
+router.use("/aws", textract);
 
 export default router

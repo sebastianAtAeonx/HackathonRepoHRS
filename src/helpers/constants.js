@@ -65,4 +65,5 @@ export default {
   STATIC_PATH,
   aws,
   bucket,
+  s3Creds,
 };
