@@ -10,6 +10,7 @@ import { response } from "express";
 import AWS from "aws-sdk";
 
 const translateAndtextract = async (req, res) => {
+  const {language='gu'} = req.body
   // Configure AWS credentials and region
   AWS.config.update({
     region: constant.aws.region,
@@ -47,7 +48,7 @@ const translateAndtextract = async (req, res) => {
           // 3. Translate the text block using Translate
           const translateParams = {
             SourceLanguageCode: identifiedLanguage,
-            TargetLanguageCode: "gu", // Replace with target language code
+            TargetLanguageCode: language, // Replace with target language code
             Text: text,
           };
 
@@ -56,7 +57,7 @@ const translateAndtextract = async (req, res) => {
             .promise();
           const translatedText = translateResponse.TranslatedText;
 
-          textToTranslate.push(`${translatedText}\n`); // Add newline for each translated block
+          textToTranslate.push(`${translatedText} `); // Add newline for each translated block
         }
       }
 
