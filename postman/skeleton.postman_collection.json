@@ -1,0 +1,510 @@
+{
+	"info": {
+		"_postman_id": "2cc9627f-0662-4c81-9aea-621b41ae6ba1",
+		"name": "skeleton",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23193844"
+	},
+	"item": [
+		{
+			"name": "authorization",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin.academy@ditinteractive.com\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}authorization/login",
+							"host": [
+								"{{local}}authorization"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-user-detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzY1Mzg4MDMsImV4cCI6MTY3NjU0NjAwM30.bJCJtgVGvkhVxe6ZIRG-0YRamK90_JKxnRcAl_EJ62o",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 77\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}authorization/get-user-detail",
+							"host": [
+								"{{local}}authorization"
+							],
+							"path": [
+								"get-user-detail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change-password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\" : 1,\r\n    \"old_password\": \"Jd@007\",\r\n    \"new_password\" : \"Jd@007p\",\r\n    \"confirm_password\" : \"Jd@007p\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}authorization/change-password",
+							"host": [
+								"{{local}}authorization"
+							],
+							"path": [
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh-token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzY2Mjg4ODQsImV4cCI6MTY3NjYzNjA4NH0.LbaL4uBHfZhx29SnY50_-G9B2LVMn2v70CbdlAWXhqY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\": \"Div\",\r\n    \"lastname\": \"Patel\",\r\n    \"email\": \"div@ditinteractive.com\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}admin/create",
+							"host": [
+								"{{local}}admin"
+							],
+							"path": [
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listing",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6IjEiLCJlbWFpbCI6ImFqYXlAZGl0aW50ZXJhY3RpdmUuY29tIiwiaWF0IjoxNjcwNTcwNTgzLCJleHAiOjE3NDI1NzA1ODN9.xo2xUzKBtQyPDIhc81bJ28X9Ygg36oCod4VNkrl4pxY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"limit\": 10,\r\n    \"offset\": 0\r\n\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}admin/listing",
+							"host": [
+								"{{local}}admin"
+							],
+							"path": [
+								"listing"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IjEiLCJlbWFpbCI6ImpkQGRpdGludGVyYWN0aXZlLmNvbSIsImlhdCI6MTY2ODY4OTMwNCwiZXhwIjoxNjY4Njk2NTA0fQ.CVCW96QbaKH8Zdw1g5IrpF9Vj2VdsKh-vmxtOc3A6mY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 5,\r\n    \"firstname\": \"Diu\",\r\n    \"lastname\": \"Patel\",\r\n    \"email\": \"diu@ditinteractive.com\",\r\n    \"role\": \"1\",\r\n    \"password\": \"12345678\",\r\n    \"status\": \"1\",\r\n    \"type\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}admin/update",
+							"host": [
+								"{{local}}admin"
+							],
+							"path": [
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IjEiLCJlbWFpbCI6ImpkQGRpdGludGVyYWN0aXZlLmNvbSIsImlhdCI6MTY2ODY4OTMwNCwiZXhwIjoxNjY4Njk2NTA0fQ.CVCW96QbaKH8Zdw1g5IrpF9Vj2VdsKh-vmxtOc3A6mY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}admin/delete",
+							"host": [
+								"{{local}}admin"
+							],
+							"path": [
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "location",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzY1Mzg4MDMsImV4cCI6MTY3NjU0NjAwM30.bJCJtgVGvkhVxe6ZIRG-0YRamK90_JKxnRcAl_EJ62o",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"ahmedabad\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}location/create",
+							"host": [
+								"{{local}}location"
+							],
+							"path": [
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listing",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjYsInJvbGUiOiIxIiwiZW1haWwiOiJhZG1pbi5hY2FkZW15QGRpdGludGVyYWN0aXZlLmNvbSIsImlhdCI6MTY3MzI2Njk1NiwiZXhwIjoxNzQ1MjY2OTU2fQ.cY-0x0KGzHXQtRps34ZvZlJhIt_4z4eXVVD7ddy8BFA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}location/listing",
+							"host": [
+								"{{local}}location"
+							],
+							"path": [
+								"listing"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzY1Mzg4MDMsImV4cCI6MTY3NjU0NjAwM30.bJCJtgVGvkhVxe6ZIRG-0YRamK90_JKxnRcAl_EJ62o",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : \"15\",\r\n    \"name\" : \"Bhuj\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}location/update",
+							"host": [
+								"{{local}}location"
+							],
+							"path": [
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzY1Mzg4MDMsImV4cCI6MTY3NjU0NjAwM30.bJCJtgVGvkhVxe6ZIRG-0YRamK90_JKxnRcAl_EJ62o",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 13\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}location/delete",
+							"host": [
+								"{{local}}location"
+							],
+							"path": [
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzY1Mzg4MDMsImV4cCI6MTY3NjU0NjAwM30.bJCJtgVGvkhVxe6ZIRG-0YRamK90_JKxnRcAl_EJ62o",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 15\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}location/get-detail",
+							"host": [
+								"{{local}}location"
+							],
+							"path": [
+								"get-detail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-location-by-status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjYsInJvbGUiOiIxIiwiZW1haWwiOiJhZG1pbi5hY2FkZW15QGRpdGludGVyYWN0aXZlLmNvbSIsImlhdCI6MTY3ODI5MjkzMCwiZXhwIjoxNjc4MzAwMTMwfQ.GCersQ6_9dqvMQAvca3OJiq7zHmnXeGLpmhrFoFI14k",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}location/get-location-by-status",
+							"host": [
+								"{{local}}location"
+							],
+							"path": [
+								"get-location-by-status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "local",
+			"value": "http://localhost:8000/api/"
+		}
+	]
+}

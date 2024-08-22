@@ -1,0 +1,8 @@
+node_modules
+.env
+src/uploads
+login_activity.log
+user_activity2.log
+package-lock.json
+yarn.lock
+.dbCreds

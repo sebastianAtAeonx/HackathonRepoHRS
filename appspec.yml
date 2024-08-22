@@ -1,0 +1,15 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/supplierx/
+hooks:
+  AfterInstall:
+    - location: scripts/AfterInstallHook.sh
+      timeout: 300
+      runas: root
+
+  BeforeInstall:
+    - location: scripts/BeforeInstallHook.sh
+      timeout: 300
+      runas: root

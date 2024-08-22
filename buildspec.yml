@@ -1,0 +1,52 @@
+version: 0.2
+env:
+  exported-variables:  
+    - DB
+    - DB_HOST
+    - DB_USER_NAME
+    - DB_PASSWORD
+    - DB_PORT
+    - ACCESS
+    - SECRET
+    - S3_REGION
+    - S3_BUCKET
+    - S3_ARCHIVE_BUCKET
+    - Bucket
+    - JWT_SECRET
+    - DB_ENVIRONMENT
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - echo Deployment Started...
+  pre_build:
+    commands:
+      - echo Installing dependencies
+      - npm install -f
+  build:
+    commands:
+      - echo Build started on `date`
+      - touch .env
+      - echo "DB=${DB}" >> .env
+      - echo "DB_HOST=${DB_HOST}" >> .env
+      - echo "DB_USER_NAME=${DB_USER_NAME}" >> .env
+      - echo "DB_PASSWORD=${DB_PASSWORD}" >> .env
+      - echo "DB_PORT=${DB_PORT}" >> .env
+      - echo "AWS_ACCESS_KEY_ID=${ACCESS}" >> .env
+      - echo "AWS_SECRET_ACCESS_KEY=${SECRET}" >> .env
+      - echo "S3_REGION=${S3_REGION}" >> .env
+      - echo "S3_BUCKET=${S3_BUCKET}" >> .env
+      - echo "S3_ARCHIVE_BUCKET=${S3_ARCHIVE_BUCKET}" >> .env
+      - echo "Bucket=${Bucket}" >> .env
+      - echo "JWT_SECRET=${JWT_SECRET}" >> .env
+      - echo "DB_ENVIRONMENT=${DB_ENVIRONMENT}" >> .env
+      - echo Build completed on `date`
+  post_build:
+    commands:
+      - echo Build completed on `date`
+
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: no
