@@ -3,20 +3,13 @@ import fileUpload from "express-fileupload";
 import path from "path";
 import { fileURLToPath } from "url";
 import cors from "cors";
-import v1 from "./routes/v1.js";
+// import v1 from "./routes/v1.js";
 import knex from "./config/mysql_db.js";
-import authorization from "./routes/authorization.js";
-import role from "./routes/role.js";
 import verifyToken from "./middleware/jwt.js";
 import constants from "./helpers/constants.js";
 import { readFileSync } from "fs";
-import functions from "./helpers/functions.js";
-import s3 from "./s3/s3.js";
-import logLastQuery from "./middleware/lastQury.js";
-import dynamo from "./config/dynamo_db.js";
-import supplier from "../src/routes/supplier.js";
-import admin from "../src/routes/admin.js";
-
+// import functions from "./helpers/functions.js";
+// import s3 from "./s3/s3.js";
 import rateLimit from "express-rate-limit";
 import {databaseName} from "./config/mysql_db.js";
 
@@ -46,13 +39,6 @@ app.get(`${sub_uri}/hello`, (req, res) => {
   });
 });
 
-// app.use(`${sub_uri}/`, logLastQuery.logLastQuery); //for displaying last query
-app.use(`${sub_uri}/authorization`, authorization);
-app.use(`${sub_uri}/supplier`, supplier);
-app.use(`${sub_uri}/admin`, admin);
-
-
-app.use(`${sub_uri}/v1`, v1);
 app.get(`${sub_uri}/upload`, async (req, res) => {
   const buffer = JSON.parse(readFileSync("test.json").toString());
   await knex("states").insert(buffer);
