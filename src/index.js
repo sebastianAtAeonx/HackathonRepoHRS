@@ -3,13 +3,11 @@ import fileUpload from "express-fileupload";
 import path from "path";
 import { fileURLToPath } from "url";
 import cors from "cors";
-// import v1 from "./routes/v1.js";
+import v1 from "./routes/v1.js";
 import knex from "./config/mysql_db.js";
 import verifyToken from "./middleware/jwt.js";
 import constants from "./helpers/constants.js";
 import { readFileSync } from "fs";
-// import functions from "./helpers/functions.js";
-// import s3 from "./s3/s3.js";
 import rateLimit from "express-rate-limit";
 import {databaseName} from "./config/mysql_db.js";
 
@@ -38,6 +36,8 @@ app.get(`${sub_uri}/hello`, (req, res) => {
     message: "Hello",
   });
 });
+
+app.use(`${sub_uri}/v1`, v1);
 
 app.get(`${sub_uri}/upload`, async (req, res) => {
   const buffer = JSON.parse(readFileSync("test.json").toString());
