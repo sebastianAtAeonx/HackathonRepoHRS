@@ -9,7 +9,7 @@ import moment from "moment";
 import { response } from "express";
 import AWS from "aws-sdk";
 import validation from "../validation/textract.js";
-// import pdfParse from "pdf-parse";
+
 
 const supplierId = 1;
 const Textract = async (req, res) => {
@@ -567,46 +567,7 @@ const Textract = async (req, res) => {
   //   });
   // }
 };
-// const translate = new AWS.Translate();
- // Replace 'your-region' with your AWS region
 
-// const uploadAndTranslate = async (req, res) => {
-//   try {
-//     const fileType = req.files.file.mimetype;
-//     const fileBuffer = req.files.file.data;
-//     let extractedText = "";
-
-//     if (fileType === "application/pdf") {
-//       // Convert PDF to text
-//       extractedText = await extractTextFromPDF(fileBuffer); // Await extractTextFromPDF result
-//     } else if (fileType.startsWith("image/")) {
-//       // Convert Image to text using OCR
-//       const { data: { text } } = await Tesseract.recognize(fileBuffer, 'eng');
-//       extractedText = text; // No need to convert to UTF-8 again
-//     } else {
-//       return res.status(400).send("Unsupported file type");
-//     }
-
-//     // Translate the extracted UTF-8 text using AWS Translate
-//     const translateParams = {
-//       SourceLanguageCode: "auto", // Auto-detect source language
-//       TargetLanguageCode: "en", // Replace with target language code
-//       Text: extractedText,
-//     };
-
-//     const translateResponse = await translate.translateText(translateParams).promise();
-//     const translatedText = translateResponse.TranslatedText;
-
-//     return res.json({
-//       error: false,
-//       message: "Translated Text",
-//       data: translatedText,
-//     });
-//   } catch (err) {
-//     console.error(err);
-//     return res.status(500).send("Error processing the file");
-//   }
-// };
 export default {
   Textract,
   // uploadAndTranslate
